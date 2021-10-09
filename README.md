@@ -19,15 +19,15 @@
 interface Loopback0
  ip address 10.0.0.1 255.255.255.255
 !
-interface Ethernet0/0
+interface Ethernet0/1
  description Spine1
  ip address 10.1.0.1 255.255.255.252
 !
-interface Ethernet0/1
+interface Ethernet0/2
  description Spine2
  ip address 10.1.0.5 255.255.255.252
 !
-interface Ethernet0/2
+interface Ethernet0/3
  description Spine3
  ip address 10.1.0.9 255.255.255.252
 !
@@ -49,15 +49,15 @@ interface Ethernet0/2
 interface Loopback0
  ip address 10.0.1.1 255.255.255.255
 !
-interface Ethernet0/0
+interface Ethernet0/1
  description Leaf1
  ip address 10.1.1.1 255.255.255.252
 !
-interface Ethernet0/1
+interface Ethernet0/2
  description Leaf2
  ip address 10.1.1.5 255.255.255.252
 !
-interface Ethernet0/2
+interface Ethernet0/3
  description Leaf3
  ip address 10.1.1.9 255.255.255.252
 !
@@ -83,15 +83,15 @@ interface Ethernet0/24
 interface Loopback0
  ip address 10.0.1.2 255.255.255.255
 !
-interface Ethernet0/0
+interface Ethernet0/1
  description Leaf1
  ip address 10.1.2.1 255.255.255.252
 !
-interface Ethernet0/1
+interface Ethernet0/2
  description Leaf2
  ip address 10.1.2.5 255.255.255.252
 !
-interface Ethernet0/2
+interface Ethernet0/3
  description Leaf3
  ip address 10.1.2.9 255.255.255.252
 !
@@ -139,11 +139,11 @@ interface Ethernet0/24
 interface Loopback0
  ip address 10.0.2.1 255.255.255.255
 !
-interface Ethernet0/0
+interface Ethernet0/1
  description Spine1
  ip address 10.1.1.2 255.255.255.252
 !
-interface Ethernet0/1
+interface Ethernet0/2
  description Spine2
  ip address 10.1.2.2 255.255.255.252
 !
@@ -163,11 +163,11 @@ interface Ethernet0/1
 interface Loopback0
  ip address 10.0.2.2 255.255.255.255
 !
-interface Ethernet0/0
+interface Ethernet0/1
  description Spine1
  ip address 10.1.1.6 255.255.255.252
 !
-interface Ethernet0/1
+interface Ethernet0/2
  description Spine2
  ip address 10.1.2.6 255.255.255.252
 !
@@ -187,17 +187,13 @@ interface Ethernet0/1
 interface Loopback0
  ip address 10.0.2.3 255.255.255.255
 !
-interface Ethernet0/0
+interface Ethernet0/1
  description Spine1
  ip address 10.1.1.10 255.255.255.252
 !
-interface Ethernet0/1
+interface Ethernet0/2
  description Spine2
  ip address 10.1.2.10 255.255.255.252
-!
-interface Ethernet0/2
- description Spine3
- ip address 10.1.3.10 255.255.255.252
 !
 </code></pre>
 </details>
