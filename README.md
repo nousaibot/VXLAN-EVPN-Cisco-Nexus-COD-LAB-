@@ -22,6 +22,7 @@
 | 10.1.1.109/30 |  ether 0/3|Leaf3|
 |10.0.1.1/32|loopback0 |
 
+---
 ###Spine2
  |  address |interface |peer
 |:---------------:| -----:|-----:|
