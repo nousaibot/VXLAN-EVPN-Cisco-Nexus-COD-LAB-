@@ -1,1 +1,32 @@
-# VXLAN-EVPN-Cisco-Nexus-COD-LAB-
+| Подсеть  | Префикс  |  Роль |
+| :------------ |:---------------:| -----:|
+| 10.0.0.0/16 | /30|p2p |
+| 10.0.0.0/16| /32|loopback |
+
+---
+###Core
+|  address |interface |peer
+|:---------------:| -----:|-----:|
+|10.1.0.1/30| ether 0/1 |Spine1|
+| 10.1.0.5/30|ether 0/2  |Spine2|
+| 10.1.0.9/30 |  ether 0/3|Spine3|
+|10.0.0.1/32|loopback0 |
+
+---
+###Spine1
+ |  address |interface |peer
+|:---------------:| -----:|-----:|
+|10.1.0.2/30| ether 0/24 |Core|
+| 10.1.1.101/30|ether 0/1  |Leaf1|
+| 10.1.1.105/30 |  ether 0/2|Leaf2|
+| 10.1.1.109/30 |  ether 0/3|Leaf3|
+|10.0.1.1/32|loopback0 |
+
+###Spine2
+ |  address |interface |peer
+|:---------------:| -----:|-----:|
+|10.1.0.6/30| ether 0/24 |Core|
+| 10.1.2.101/30|ether 0/1  |Leaf1|
+| 10.1.2.105/30 |  ether 0/2|Leaf2|
+| 10.1.2.109/30 |  ether 0/3|Leaf3|
+|10.0.2.1/32|loopback0 |
