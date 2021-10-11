@@ -107,7 +107,7 @@ interface Ethernet1/7
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
 |10.1.0.10/30|ether1/7|Core|
-|10.1.4.13/30|ether1/1|Leaf4|
+|10.1.4.13/30|ether1/4|Leaf4|
 |10.0.1.3/32|loopback0|
 <details>
   <summary>`Show Config`</summary>
