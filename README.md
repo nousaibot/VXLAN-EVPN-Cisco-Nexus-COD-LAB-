@@ -5,7 +5,8 @@
 |10.1.0.0/16|/30|p2p|
 |10.0.0.0/16|/32|loopback|
 
-[![](map)](https://github.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/blob/main/map.PNG)
+![image](https://user-images.githubusercontent.com/58727249/136808492-b5fd39ff-f134-41d8-bec9-c6020375fb8d.png)
+
 ---
 ###Core
 |address |interface|peer
