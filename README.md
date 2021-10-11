@@ -4,9 +4,8 @@
 |:------------ |:-------:|:-------:|
 |10.1.0.0/16|/30|p2p|
 |10.0.0.0/16|/32|loopback|
-
+---
 ![image](https://user-images.githubusercontent.com/58727249/136815916-10b12711-5e0c-4353-9b8a-772a3edafd67.png)
-
 
 ---
 ###Core
