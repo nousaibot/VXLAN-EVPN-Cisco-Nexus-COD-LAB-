@@ -117,7 +117,7 @@ interface Loopback0
 !
 interface Ethernet1/4
  description Leaf4
- ip address 10.1.4.13 255.255.255.252
+ ip address 10.1.3.13 255.255.255.252
 !
 interface Ethernet1/7
  description Core
