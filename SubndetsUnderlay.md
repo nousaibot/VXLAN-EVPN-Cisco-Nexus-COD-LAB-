@@ -9,7 +9,6 @@
 |10.2.0.0/16|/32|loopback Leaf|
 ---
 ![image](https://user-images.githubusercontent.com/58727249/138097448-c7264291-f8f9-4d17-b183-f7aecfd1ae8d.png)
-
 ---
 ###Core
 |address |interface|peer
