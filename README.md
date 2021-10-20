@@ -2,8 +2,11 @@
 
 | Подсеть  | Префикс  | Роль |
 |:------------ |:-------:|:-------:|
-|10.1.0.0/16|/30|p2p|
-|10.0.0.0/16|/32|loopback|
+|10.10.0.0/16|/31|p2p Spine to Core|
+|10.11.0.0/16|/31|p2p Spine to Leaf|
+|10.0.0.0/16|/32|loopback Core|
+|10.1.0.0/16|/32|loopback Sipne|
+|10.2.0.0/16|/32|loopback Leaf|
 ---
 ![image](https://user-images.githubusercontent.com/58727249/136815916-10b12711-5e0c-4353-9b8a-772a3edafd67.png)
 
@@ -11,9 +14,9 @@
 ###Core
 |address |interface|peer
 |:---------------:|:-----:|:----:|
-|10.1.0.1/30|ether1/1|Spine1|
-|10.1.0.5/30|ether1/2|Spine2|
-|10.1.0.9/30|ether1/3|Spine3|
+|10.10.0.1/31|ether1/1|Spine1|
+|10.10.0.3/31|ether1/2|Spine2|
+|10.10.0.5/31|ether1/3|Spine3|
 |10.0.0.1/32|loopback0|
 <details>
   <summary>`Show Config`</summary>
@@ -21,17 +24,17 @@
 interface Loopback0
  ip address 10.0.0.1 255.255.255.255
 !
-interface Ethernet1/1
+interface Ethernet0/1
  description Spine1
- ip address 10.1.0.1 255.255.255.252
+ ip address 10.10.0.1 255.255.255.254
 !
-interface Ethernet1/2
+interface Ethernet0/2
  description Spine2
- ip address 10.1.0.5 255.255.255.252
+ ip address 10.10.0.3 255.255.255.254
 !
-interface Ethernet1/3
+interface Ethernet0/3
  description Spine3
- ip address 10.1.0.9 255.255.255.252
+ ip address 10.10.0.5 255.255.255.254
 !
 </code></pre>
 </details>
@@ -40,32 +43,32 @@ interface Ethernet1/3
 ###Spine1
  | address |interface |peer
 |:---------------:|:-----:|:-----:|
-|10.1.0.2/30|ether1/7|Core|
-|10.1.1.1/30|ether1/1|Leaf1|
-|10.1.1.5/30|ether1/2|Leaf2|
-|10.1.1.9/30|ether1/3|Leaf3|
-|10.0.1.1/32|loopback0 |
+|10.11.0.1/31|ether1/1|Leaf1|
+|10.11.0.3/31|ether1/2|Leaf2|
+|10.11.0.5/31|ether1/3|Leaf3|
+|10.10.0.2/31|ether1/7|Core|
+|10.1.0.1/32|loopback0 |
 <details>
   <summary>`Show Config`</summary>
 <pre><code>
 interface Loopback0
- ip address 10.0.1.1 255.255.255.255
+ ip address 10.1.0.1 255.255.255.255
 !
 interface Ethernet1/1
  description Leaf1
- ip address 10.1.1.1 255.255.255.252
+ ip address 10.11.0.1 255.255.255.254
 !
 interface Ethernet1/2
  description Leaf2
- ip address 10.1.1.5 255.255.255.252
+ ip address 10.11.0.3 255.255.255.254
 !
 interface Ethernet1/3
  description Leaf3
- ip address 10.1.1.9 255.255.255.252
+ ip address 10.11.0.5 255.255.255.254
 !
 interface Ethernet0/7
  description Core
- ip address 10.1.0.2 255.255.255.252
+ ip address 10.10.0.2 255.255.255.254
 !
 </code></pre>
 </details>
@@ -74,32 +77,32 @@ interface Ethernet0/7
 ###Spine2
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
-|10.1.0.6/30|ether1/7|Core|
-|10.1.2.1/30|ether1/1|Leaf1|
-|10.1.2.5/30|ether1/2|Leaf2|
-|10.1.2.9/30|ether1/3|Leaf3|
-|10.0.1.2/32|loopback0|
+|10.11.0.7/31|ether1/1|Leaf1|
+|10.11.0.9/31|ether1/2|Leaf2|
+|10.10.0.11/31|ether1/3|Leaf3|
+|10.1.0.4/31|ether1/7|Core|
+|10.1.0.2/32|loopback0|
 <details>
   <summary>`Show Config`</summary>
 <pre><code>
 interface Loopback0
- ip address 10.0.1.2 255.255.255.255
+ ip address 10.1.0.2 255.255.255.255
 !
 interface Ethernet1/1
  description Leaf1
- ip address 10.1.2.1 255.255.255.252
+ ip address 10.11.0.7 255.255.255.254
 !
 interface Ethernet1/2
  description Leaf2
- ip address 10.1.2.5 255.255.255.252
+ ip address 10.11.0.9 255.255.255.254
 !
 interface Ethernet1/3
  description Leaf3
- ip address 10.1.2.9 255.255.255.252
+ ip address 10.11.0.11 255.255.255.254
 !
 interface Ethernet1/7
  description Core
- ip address 10.1.0.6 255.255.255.252
+ ip address 10.10.0.4 255.255.255.254
 !
 </code></pre>
 </details>
@@ -108,22 +111,22 @@ interface Ethernet1/7
 ###Spine3
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
-|10.1.0.10/30|ether1/7|Core|
-|10.1.4.13/30|ether1/4|Leaf4|
-|10.0.1.3/32|loopback0|
+|10.11.0.13/31|ether1/1|Leaf4|
+|10.10.0.6/31|ether1/7|Core|
+|10.1.0.3/32|loopback0|
 <details>
   <summary>`Show Config`</summary>
 <pre><code>
 interface Loopback0
- ip address 10.0.1.3 255.255.255.255
+ ip address 10.1.0.3 255.255.255.255
 !
-interface Ethernet1/4
+interface Ethernet1/1
  description Leaf4
- ip address 10.1.3.13 255.255.255.252
+ ip address 10.11.0.13 255.255.255.254
 !
 interface Ethernet1/7
  description Core
- ip address 10.1.0.10 255.255.255.252
+ ip address 10.10.0.6 255.255.255.254
 !
 </code></pre>
 </details>
@@ -132,22 +135,22 @@ interface Ethernet1/7
 ###Leaf1
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
-|10.1.1.2/30|ether1/1|Spine1|
-|10.1.2.2/30|ether1/2|Spine2|
-|10.0.2.1/32|loopback0|
+|10.11.0.2/31|ether1/1|Spine1|
+|10.11.0.4/31|ether1/2|Spine2|
+|10.2.0.1/32|loopback0|
 <details>
   <summary>`Show Config`</summary>
 <pre><code>
 interface Loopback0
- ip address 10.0.2.1 255.255.255.255
+ ip address 10.2.0.1 255.255.255.255
 !
 interface Ethernet1/1
  description Spine1
- ip address 10.1.1.2 255.255.255.252
+ ip address 10.11.0.2 255.255.255.254
 !
 interface Ethernet1/2
  description Spine2
- ip address 10.1.2.2 255.255.255.252
+ ip address 10.11.0.8 255.255.255.254
 !
 </code></pre>
 </details>
@@ -156,22 +159,22 @@ interface Ethernet1/2
 ###Leaf2
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
-|10.1.1.6/30|ether1/1|Spine1|
-|10.1.2.6/30|ether1/2|Spine2|
+|10.1.1.6/31|ether1/1|Spine1|
+|10.1.2.6/31|ether1/2|Spine2|
 |10.0.2.2/32|loopback0|
 <details>
   <summary>`Show Config`</summary>
 <pre><code>
 interface Loopback0
- ip address 10.0.2.2 255.255.255.255
+ ip address 10.2.0.2 255.255.255.255
 !
 interface Ethernet1/1
  description Spine1
- ip address 10.1.1.6 255.255.255.252
+ ip address 10.11.0.4 255.255.255.254
 !
 interface Ethernet1/2
  description Spine2
- ip address 10.1.2.6 255.255.255.252
+ ip address 10.10.0.10 255.255.255.254
 !
 </code></pre>
 </details>
@@ -180,22 +183,22 @@ interface Ethernet1/2
 ###Leaf3
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
-|10.1.1.10/30|ether1/1|Spine1|
-|10.1.2.10/30|ether1/2|Spine2|
-|10.0.2.3/32|loopback0|
+|10.1.1.10/31|ether1/1|Spine1|
+|10.1.2.10/31|ether1/2|Spine2|
+|10.2.0.3/32|loopback0|
 <details>
   <summary>`Show Config`</summary>
 <pre><code>
 interface Loopback0
- ip address 10.0.2.3 255.255.255.255
+ ip address 10.2.0.3 255.255.255.255
 !
 interface Ethernet1/1
  description Spine1
- ip address 10.1.1.10 255.255.255.252
+ ip address 10.11.0.6 255.255.255.254
 !
 interface Ethernet1/2
  description Spine2
- ip address 10.1.2.10 255.255.255.252
+ ip address 10.11.0.10 255.255.255.254
 !
 </code></pre>
 </details>
@@ -204,17 +207,17 @@ interface Ethernet1/2
 ###Leaf4
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
-|10.1.4.14/30|ether1/3|Spine3|
-|10.0.2.4/32|loopback0|
+|10.11.0.14/31|ether1/1|Spine3|
+|10.2.0.4/32|loopback0|
 <details>
   <summary>`Show Config`</summary>
 <pre><code>
 interface Loopback0
- ip address 10.0.2.4 255.255.255.255
+ ip address 10.2.0.4 255.255.255.255
 !
-interface Ethernet1/3
+interface Ethernet1/1
  description Spine3
- ip address 10.1.3.14 255.255.255.252
+ ip address 10.0.0.14 255.255.255.254
 !
 </code></pre>
 </details>
