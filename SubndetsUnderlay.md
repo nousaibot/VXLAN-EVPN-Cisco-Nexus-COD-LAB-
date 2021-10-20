@@ -9,6 +9,7 @@
 |10.2.0.0/16|/32|loopback Leaf|
 ---
 ![image](https://user-images.githubusercontent.com/58727249/138097448-c7264291-f8f9-4d17-b183-f7aecfd1ae8d.png)
+
 ---
 ###Core
 |address |interface|peer
@@ -173,7 +174,7 @@ interface Ethernet1/1
 !
 interface Ethernet1/2
  description Spine2
- ip address 10.10.0.9 255.255.255.254
+ ip address 10.11.0.9 255.255.255.254
 !
 </code></pre>
 </details>
