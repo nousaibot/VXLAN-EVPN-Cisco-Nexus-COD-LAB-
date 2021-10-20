@@ -217,7 +217,7 @@ interface Loopback0
 !
 interface Ethernet1/1
  description Spine3
- ip address 10.0.0.14 255.255.255.254
+ ip address 10.0.0.13 255.255.255.254
 !
 </code></pre>
 </details>
