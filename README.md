@@ -79,8 +79,8 @@ interface Ethernet0/7
 |:---------------:|:-----:|:-----:|
 |10.11.0.7/31|ether1/1|Leaf1|
 |10.11.0.9/31|ether1/2|Leaf2|
-|10.10.0.11/31|ether1/3|Leaf3|
-|10.1.0.4/31|ether1/7|Core|
+|10.11.0.11/31|ether1/3|Leaf3|
+|10.10.0.4/31|ether1/7|Core|
 |10.1.0.2/32|loopback0|
 <details>
   <summary>`Show Config`</summary>
@@ -136,7 +136,7 @@ interface Ethernet1/7
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
 |10.11.0.2/31|ether1/1|Spine1|
-|10.11.0.4/31|ether1/2|Spine2|
+|10.11.0.8/31|ether1/2|Spine2|
 |10.2.0.1/32|loopback0|
 <details>
   <summary>`Show Config`</summary>
@@ -159,8 +159,8 @@ interface Ethernet1/2
 ###Leaf2
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
-|10.1.1.6/31|ether1/1|Spine1|
-|10.1.2.6/31|ether1/2|Spine2|
+|10.11.0.4/31|ether1/1|Spine1|
+|10.11.0.10/31|ether1/2|Spine2|
 |10.0.2.2/32|loopback0|
 <details>
   <summary>`Show Config`</summary>
@@ -183,8 +183,8 @@ interface Ethernet1/2
 ###Leaf3
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
-|10.1.1.10/31|ether1/1|Spine1|
-|10.1.2.10/31|ether1/2|Spine2|
+|10.11.0.6/31|ether1/1|Spine1|
+|10.11.0.12/31|ether1/2|Spine2|
 |10.2.0.3/32|loopback0|
 <details>
   <summary>`Show Config`</summary>
@@ -198,7 +198,7 @@ interface Ethernet1/1
 !
 interface Ethernet1/2
  description Spine2
- ip address 10.11.0.10 255.255.255.254
+ ip address 10.11.0.12 255.255.255.254
 !
 </code></pre>
 </details>
