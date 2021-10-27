@@ -90,7 +90,6 @@ Link ID         ADV Router      Age         Seq#       Checksum Link count
 10.2.0.2        10.2.0.2        949         0x8000000A 0x007B45 5
 10.2.0.3        10.2.0.3        924         0x80000009 0x00981E 5
 10.2.0.4        10.2.0.4        575         0x80000009 0x0082D8 3
-Core#
 </code></pre>
 </details>
 
@@ -156,7 +155,6 @@ interface Ethernet0/7
   <summary>`Show OSPF status`</summary>
 <pre><code>
 Spine1# sh ip ospf interface brief
-sh ip ospf neighbor
  OSPF Process ID 1 VRF default
  Total number of interface: 5
  Interface               ID     Area            Cost   State    Neighbors Status
@@ -249,11 +247,43 @@ interface Ethernet1/7
 !
 </code></pre>
 </details>
-
+  
 <details>
   <summary>`Show OSPF status`</summary>
 <pre><code>
-
+Spine2# sh ip ospf interface brief
+ OSPF Process ID 1 VRF default
+ Total number of interface: 5
+ Interface               ID     Area            Cost   State    Neighbors Status
+ Eth1/1                  1      0.0.0.0         40     P2P      1         up  
+ Eth1/2                  2      0.0.0.0         40     P2P      1         up  
+ Eth1/3                  3      0.0.0.0         40     P2P      1         up  
+ Eth1/7                  4      0.0.0.0         40     P2P      1         up  
+ Lo0                     5      0.0.0.0         1      LOOPBACK 0         up  
+</code></pre>
+<pre><code>
+Spine2# sh ip ospf neighbor
+ OSPF Process ID 1 VRF default
+ Total number of neighbors: 4
+ Neighbor ID     Pri State            Up Time  Address         Interface
+ 10.2.0.1          1 FULL/ -          02:12:05 10.11.0.7       Eth1/1 
+ 10.2.0.2          1 FULL/ -          02:10:13 10.11.0.9       Eth1/2 
+ 10.2.0.3          1 FULL/ -          02:09:55 10.11.0.11      Eth1/3 
+ 10.0.0.1          1 FULL/ -          01:37:48 10.10.0.2       Eth1/7 
+</code></pre>
+<pre><code>
+Spine2# sh ip ospf database
+        OSPF Router with ID (10.1.0.2) (Process ID 1 VRF default)
+                Router Link States (Area 0.0.0.0)
+Link ID         ADV Router      Age        Seq#       Checksum Link Count
+10.0.0.1        10.0.0.1        1570       0x80000013 0xa31c   7   
+10.1.0.1        10.1.0.1        376        0x80000014 0x3c40   9   
+10.1.0.2        10.1.0.2        223        0x80000016 0xe965   9   
+10.1.0.3        10.1.0.3        172        0x80000016 0x2287   5   
+10.2.0.1        10.2.0.1        650        0x8000000a 0x606b   5   
+10.2.0.2        10.2.0.2        542        0x8000000b 0x7946   5   
+10.2.0.3        10.2.0.3        517        0x8000000a 0x961f   5   
+10.2.0.4        10.2.0.4        169        0x8000000a 0x80d9   3   
 </code></pre>
 </details>
 
@@ -302,7 +332,36 @@ interface Ethernet1/7
 <details>
   <summary>`Show OSPF status`</summary>
 <pre><code>
-
+Spine3# sh ip ospf interface brief
+ OSPF Process ID 1 VRF default
+ Total number of interface: 3
+ Interface               ID     Area            Cost   State    Neighbors Status
+ Eth1/1                  2      0.0.0.0         40     P2P      1         up  
+ Eth1/7                  3      0.0.0.0         40     P2P      1         up  
+ Lo0                     1      0.0.0.0         1      LOOPBACK 0         up 
+</code></pre>
+<pre><code> 
+sh ip ospf database
+Spine3# sh ip ospf neighbor
+ OSPF Process ID 1 VRF default
+ Total number of neighbors: 2
+ Neighbor ID     Pri State            Up Time  Address         Interface
+ 10.2.0.4          1 FULL/ -          01:22:09 10.11.0.13      Eth1/1 
+ 10.0.0.1          1 FULL/ -          01:22:11 10.10.0.4       Eth1/7 
+</code></pre>
+<pre><code>
+switch# sh ip ospf database
+        OSPF Router with ID (10.1.0.3) (Process ID 1 VRF default)
+                Router Link States (Area 0.0.0.0)
+Link ID         ADV Router      Age        Seq#       Checksum Link Count
+10.0.0.1        10.0.0.1        872        0x80000013 0xa31c   7   
+10.1.0.1        10.1.0.1        1498       0x80000013 0x3e3f   9   
+10.1.0.2        10.1.0.2        1348       0x80000015 0xeb64   9   
+10.1.0.3        10.1.0.3        1292       0x80000015 0x2486   5   
+10.2.0.1        10.2.0.1        1775       0x80000009 0x626a   5   
+10.2.0.2        10.2.0.2        1666       0x8000000a 0x7b45   5   
+10.2.0.3        10.2.0.3        1641       0x80000009 0x981e   5   
+10.2.0.4        10.2.0.4        1290       0x80000009 0x82d8   3 
 </code></pre>
 </details>
 
@@ -349,7 +408,35 @@ interface Ethernet1/2
 <details>
   <summary>`Show OSPF status`</summary>
 <pre><code>
-
+Leaf1# sh ip ospf interface brief
+ OSPF Process ID 1 VRF default
+ Total number of interface: 3
+ Interface               ID     Area            Cost   State    Neighbors Status
+ Eth1/1                  1      0.0.0.0         40     P2P      1         up  
+ Eth1/2                  2      0.0.0.0         40     P2P      1         up  
+ Lo0                     3      0.0.0.0         1      LOOPBACK 0         up  
+</code></pre>
+<pre><code>
+Leaf1# sh ip ospf neighbor
+ OSPF Process ID 1 VRF default
+ Total number of neighbors: 2
+ Neighbor ID     Pri State            Up Time  Address         Interface
+ 10.1.0.1          1 FULL/ -          02:00:44 10.11.0.0       Eth1/1 
+ 10.1.0.2          1 FULL/ -          02:00:38 10.11.0.6       Eth1/2 
+</code></pre>
+<pre><code>
+Leaf1# sh ip ospf database
+        OSPF Router with ID (10.2.0.1) (Process ID 1 VRF default)
+                Router Link States (Area 0.0.0.0)
+Link ID         ADV Router      Age        Seq#       Checksum Link Count
+10.0.0.1        10.0.0.1        884        0x80000013 0xa31c   7   
+10.1.0.1        10.1.0.1        1508       0x80000013 0x3e3f   9   
+10.1.0.2        10.1.0.2        1358       0x80000015 0xeb64   9   
+10.1.0.3        10.1.0.3        1307       0x80000015 0x2486   5   
+10.2.0.1        10.2.0.1        1783       0x80000009 0x626a   5   
+10.2.0.2        10.2.0.2        1676       0x8000000a 0x7b45   5   
+10.2.0.3        10.2.0.3        1651       0x80000009 0x981e   5   
+10.2.0.4        10.2.0.4        1304       0x80000009 0x82d8   3 
 </code></pre>
 </details>
 
@@ -396,7 +483,35 @@ interface Ethernet1/2
 <details>
   <summary>`Show OSPF status`</summary>
 <pre><code>
-
+Leaf2# sh ip ospf interface brief
+ OSPF Process ID 1 VRF default
+ Total number of interface: 3
+ Interface               ID     Area            Cost   State    Neighbors Status
+ Eth1/1                  1      0.0.0.0         40     P2P      1         up  
+ Eth1/2                  2      0.0.0.0         40     P2P      1         up  
+ Lo0                     3      0.0.0.0         1      LOOPBACK 0         up 
+</code></pre>
+<pre><code> 
+Leaf2# sh ip ospf neighbor
+ OSPF Process ID 1 VRF default
+ Total number of neighbors: 2
+ Neighbor ID     Pri State            Up Time  Address         Interface
+ 10.1.0.1          1 FULL/ -          02:03:26 10.11.0.2       Eth1/1 
+ 10.1.0.2          1 FULL/ -          02:03:25 10.11.0.8       Eth1/2 
+</code></pre>
+<pre><code>
+Leaf2# sh ip ospf database
+        OSPF Router with ID (10.2.0.2) (Process ID 1 VRF default)
+                Router Link States (Area 0.0.0.0)
+Link ID         ADV Router      Age        Seq#       Checksum Link Count
+10.0.0.1        10.0.0.1        1162       0x80000013 0xa31c   7   
+10.1.0.1        10.1.0.1        1787       0x80000013 0x3e3f   9   
+10.1.0.2        10.1.0.2        1636       0x80000015 0xeb64   9   
+10.1.0.3        10.1.0.3        1585       0x80000015 0x2486   5   
+10.2.0.1        10.2.0.1        243        0x8000000a 0x606b   5   
+10.2.0.2        10.2.0.2        132        0x8000000b 0x7946   5   
+10.2.0.3        10.2.0.3        109        0x8000000a 0x961f   5   
+10.2.0.4        10.2.0.4        1582       0x80000009 0x82d8   3  
 </code></pre>
 </details>
 
@@ -443,7 +558,36 @@ interface Ethernet1/2
 <details>
   <summary>`Show OSPF status`</summary>
 <pre><code>
-
+Leaf3# sh ip ospf interface brief
+ OSPF Process ID 1 VRF default
+ Total number of interface: 3
+ Interface               ID     Area            Cost   State    Neighbors Status
+ Eth1/1                  1      0.0.0.0         40     P2P      1         up  
+ Eth1/2                  2      0.0.0.0         40     P2P      1         up  
+ Lo0                     3      0.0.0.0         1      LOOPBACK 0         up  
+</code></pre>
+<pre><code>
+Leaf3# sh ip ospf neighbor
+sh ip ospf database
+ OSPF Process ID 1 VRF default
+ Total number of neighbors: 2
+ Neighbor ID     Pri State            Up Time  Address         Interface
+ 10.1.0.1          1 FULL/ -          01:58:44 10.11.0.4       Eth1/1 
+ 10.1.0.2          1 FULL/ -          01:58:49 10.11.0.10      Eth1/2 
+</code></pre>
+<pre><code>
+Leaf3# sh ip ospf database
+        OSPF Router with ID (10.2.0.3) (Process ID 1 VRF default)
+                Router Link States (Area 0.0.0.0)
+Link ID         ADV Router      Age        Seq#       Checksum Link Count
+10.0.0.1        10.0.0.1        905        0x80000013 0xa31c   7   
+10.1.0.1        10.1.0.1        1529       0x80000013 0x3e3f   9   
+10.1.0.2        10.1.0.2        1378       0x80000015 0xeb64   9   
+10.1.0.3        10.1.0.3        1327       0x80000015 0x2486   5   
+10.2.0.1        10.2.0.1        1806       0x80000009 0x626a   5   
+10.2.0.2        10.2.0.2        1697       0x8000000a 0x7b45   5   
+10.2.0.3        10.2.0.3        1670       0x80000009 0x981e   5   
+10.2.0.4        10.2.0.4        1324       0x80000009 0x82d8   3   
 </code></pre>
 </details>
 
@@ -481,6 +625,32 @@ interface Ethernet1/1
 <details>
   <summary>`Show OSPF status`</summary>
 <pre><code>
-
+Leaf4# sh ip ospf interface brief
+ OSPF Process ID 1 VRF default
+ Total number of interface: 2
+ Interface               ID     Area            Cost   State    Neighbors Status
+ Eth1/1                  2      0.0.0.0         40     P2P      1         up  
+ Lo0                     1      0.0.0.0         1      LOOPBACK 0         up  
+</code></pre>
+<pre><code>
+Leaf4# sh ip ospf neighbor
+ OSPF Process ID 1 VRF default
+ Total number of neighbors: 1
+ Neighbor ID     Pri State            Up Time  Address         Interface
+ 10.1.0.3          1 FULL/ -          01:29:06 10.11.0.12      Eth1/1 
+</code></pre>
+<pre><code>
+Leaf4# sh ip ospf database
+        OSPF Router with ID (10.2.0.4) (Process ID 1 VRF default)
+                Router Link States (Area 0.0.0.0)
+Link ID         ADV Router      Age        Seq#       Checksum Link Count
+10.0.0.1        10.0.0.1        1290       0x80000013 0xa31c   7   
+10.1.0.1        10.1.0.1        95         0x80000014 0x3c40   9   
+10.1.0.2        10.1.0.2        1765       0x80000015 0xeb64   9   
+10.1.0.3        10.1.0.3        1710       0x80000015 0x2486   5   
+10.2.0.1        10.2.0.1        372        0x8000000a 0x606b   5   
+10.2.0.2        10.2.0.2        263        0x8000000b 0x7946   5   
+10.2.0.3        10.2.0.3        238        0x8000000a 0x961f   5   
+10.2.0.4        10.2.0.4        1705       0x80000009 0x82d8   3   
 </code></pre>
 </details>
