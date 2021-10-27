@@ -1,5 +1,8 @@
 ### Настройка Uderlay OSPF
 
+---
+
+### Подсети
 | Подсеть  | Префикс  | Роль |
 |:------------ |:-------:|:-------:|
 |10.10.0.0/16|/31|p2p Core to Spine|
@@ -11,6 +14,7 @@
 ![image](https://user-images.githubusercontent.com/58727249/138097448-c7264291-f8f9-4d17-b183-f7aecfd1ae8d.png)
 
 ---
+
 ###Core
 |address |interface|peer
 |:---------------:|:-----:|:----:|
@@ -56,7 +60,42 @@ interface Ethernet0/3
 </code></pre>
 </details>
 
+<details>
+  <summary>`Show OSPF status`</summary>
+<pre><code>
+Core#sh ip ospf interface brief
+Interface    PID   Area            IP Address/Mask    Cost  State Nbrs F/C
+Lo0          1     0               10.0.0.1/32        1     LOOP  0/0
+Et0/3        1     0               10.10.0.4/31       10    P2P   1/1
+Et0/2        1     0               10.10.0.2/31       10    P2P   1/1
+Et0/1        1     0               10.10.0.0/31       10    P2P   1/1
+</code></pre>
+<pre><code>
+Core#sh ip ospf neighbor
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+10.1.0.3          0   FULL/  -        00:00:39    10.10.0.5       Ethernet0/3
+10.1.0.2          0   FULL/  -        00:00:36    10.10.0.3       Ethernet0/2
+10.1.0.1          0   FULL/  -        00:00:32    10.10.0.1       Ethernet0/1
+</code></pre>
+<pre><code>
+Core#sh ip ospf database
+            OSPF Router with ID (10.0.0.1) (Process ID 1)
+                Router Link States (Area 0)
+Link ID         ADV Router      Age         Seq#       Checksum Link count
+10.0.0.1        10.0.0.1        155         0x80000013 0x00A31C 7
+10.1.0.1        10.1.0.1        781         0x80000013 0x003E3F 9
+10.1.0.2        10.1.0.2        631         0x80000015 0x00EB64 9
+10.1.0.3        10.1.0.3        578         0x80000015 0x002486 5
+10.2.0.1        10.2.0.1        1058        0x80000009 0x00626A 5
+10.2.0.2        10.2.0.2        949         0x8000000A 0x007B45 5
+10.2.0.3        10.2.0.3        924         0x80000009 0x00981E 5
+10.2.0.4        10.2.0.4        575         0x80000009 0x0082D8 3
+Core#
+</code></pre>
+</details>
+
 ---
+
 ###Spine1
  | address |interface |peer
 |:---------------:|:-----:|:-----:|
@@ -68,6 +107,8 @@ interface Ethernet0/3
 <details>
   <summary>`Show Config`</summary>
 <pre><code>
+feature ospf
+feature bfd
 router ospf 1
   router-id 10.1.0.1
   passive-interface default
@@ -111,7 +152,48 @@ interface Ethernet0/7
 </code></pre>
 </details>
 
+<details>
+  <summary>`Show OSPF status`</summary>
+<pre><code>
+Spine1# sh ip ospf interface brief
+sh ip ospf neighbor
+ OSPF Process ID 1 VRF default
+ Total number of interface: 5
+ Interface               ID     Area            Cost   State    Neighbors Status
+ Eth1/1                  1      0.0.0.0         40     P2P      1         up  
+ Eth1/2                  2      0.0.0.0         40     P2P      1         up  
+ Eth1/3                  3      0.0.0.0         40     P2P      1         up  
+ Eth1/7                  4      0.0.0.0         40     P2P      1         up  
+ Lo0                     5      0.0.0.0         1      LOOPBACK 0         up  
+</code></pre>
+<pre><code>
+Spine1# sh ip ospf neighbor
+ OSPF Process ID 1 VRF default
+ Total number of neighbors: 4
+ Neighbor ID     Pri State            Up Time  Address         Interface
+ 10.2.0.1          1 FULL/ -          01:55:44 10.11.0.1       Eth1/1 
+ 10.2.0.2          1 FULL/ -          01:53:47 10.11.0.3       Eth1/2 
+ 10.2.0.3          1 FULL/ -          01:53:23 10.11.0.5       Eth1/3 
+ 10.0.0.1          1 FULL/ -          01:21:24 10.10.0.0       Eth1/7 
+</code></pre>
+<pre><code>
+Spine1# sh ip ospf database
+        OSPF Router with ID (10.1.0.1) (Process ID 1 VRF default)
+                Router Link States (Area 0.0.0.0)
+Link ID         ADV Router      Age        Seq#       Checksum Link Count
+10.0.0.1        10.0.0.1        583        0x80000013 0xa31c   7   
+10.1.0.1        10.1.0.1        1208       0x80000013 0x3e3f   9   
+10.1.0.2        10.1.0.2        1059       0x80000015 0xeb64   9   
+10.1.0.3        10.1.0.3        1006       0x80000015 0x2486   5   
+10.2.0.1        10.2.0.1        1484       0x80000009 0x626a   5   
+10.2.0.2        10.2.0.2        1376       0x8000000a 0x7b45   5   
+10.2.0.3        10.2.0.3        1351       0x80000009 0x981e   5   
+10.2.0.4        10.2.0.4        1003       0x80000009 0x82d8   3   
+</code></pre>
+</details>
+
 ---
+
 ###Spine2
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
@@ -123,6 +205,8 @@ interface Ethernet0/7
 <details>
   <summary>`Show Config`</summary>
 <pre><code>
+feature ospf
+feature bfd
 router ospf 1
   router-id 10.1.0.2
   passive-interface default
@@ -166,7 +250,15 @@ interface Ethernet1/7
 </code></pre>
 </details>
 
+<details>
+  <summary>`Show OSPF status`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
 ---
+
 ###Spine3
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
@@ -176,6 +268,8 @@ interface Ethernet1/7
 <details>
   <summary>`Show Config`</summary>
 <pre><code>
+feature ospf
+feature bfd
 router ospf 1
   router-id 10.1.0.3
   passive-interface default
@@ -203,7 +297,17 @@ interface Ethernet1/7
 </code></pre>
 </details>
 
+</details>
+
+<details>
+  <summary>`Show OSPF status`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
 ---
+
 ###Leaf1
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
@@ -213,6 +317,8 @@ interface Ethernet1/7
 <details>
   <summary>`Show Config`</summary>
 <pre><code>
+feature ospf
+feature bfd
 router ospf 1
   router-id 10.2.0.1
   passive-interface default
@@ -240,7 +346,15 @@ interface Ethernet1/2
 </code></pre>
 </details>
 
+<details>
+  <summary>`Show OSPF status`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
 ---
+
 ###Leaf2
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
@@ -250,6 +364,8 @@ interface Ethernet1/2
 <details>
   <summary>`Show Config`</summary>
 <pre><code>
+feature ospf
+feature bfd
 router ospf 1
   router-id 10.2.0.2
   passive-interface default
@@ -277,7 +393,15 @@ interface Ethernet1/2
 </code></pre>
 </details>
 
+<details>
+  <summary>`Show OSPF status`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
 ---
+
 ###Leaf3
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
@@ -287,6 +411,8 @@ interface Ethernet1/2
 <details>
   <summary>`Show Config`</summary>
 <pre><code>
+feature ospf
+feature bfd
 router ospf 1
   router-id 10.2.0.3
   passive-interface default
@@ -314,7 +440,15 @@ interface Ethernet1/2
 </code></pre>
 </details>
 
+<details>
+  <summary>`Show OSPF status`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
 ---
+
 ###Leaf4
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
@@ -323,6 +457,8 @@ interface Ethernet1/2
 <details>
   <summary>`Show Config`</summary>
 <pre><code>
+feature ospf
+feature bfd
 router ospf 1
   router-id 10.2.0.4
   passive-interface default
@@ -339,5 +475,12 @@ interface Ethernet1/1
  ip router ospf 1 area 0.0.0.0
  ip ospf bfd
 !
+</code></pre>
+</details>
+
+<details>
+  <summary>`Show OSPF status`</summary>
+<pre><code>
+
 </code></pre>
 </details>

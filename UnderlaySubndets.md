@@ -11,6 +11,7 @@
 ![image](https://user-images.githubusercontent.com/58727249/138097448-c7264291-f8f9-4d17-b183-f7aecfd1ae8d.png)
 
 ---
+
 ###Core
 |address |interface|peer
 |:---------------:|:-----:|:----:|
@@ -40,6 +41,7 @@ interface Ethernet0/3
 </details>
 
 ---
+
 ###Spine1
  | address |interface |peer
 |:---------------:|:-----:|:-----:|
@@ -74,6 +76,7 @@ interface Ethernet0/7
 </details>
 
 ---
+
 ###Spine2
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
@@ -108,6 +111,7 @@ interface Ethernet1/7
 </details>
 
 ---
+
 ###Spine3
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
@@ -132,6 +136,7 @@ interface Ethernet1/7
 </details>
 
 ---
+
 ###Leaf1
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
@@ -156,6 +161,7 @@ interface Ethernet1/2
 </details>
 
 ---
+
 ###Leaf2
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
@@ -180,6 +186,7 @@ interface Ethernet1/2
 </details>
 
 ---
+
 ###Leaf3
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
@@ -204,6 +211,7 @@ interface Ethernet1/2
 </details>
 
 ---
+
 ###Leaf4
  |  address |interface |peer
 |:---------------:|:-----:|:-----:|
