@@ -68,7 +68,7 @@ interface Ethernet1/3
  description Leaf3
  ip address 10.11.0.4 255.255.255.254
 !
-interface Ethernet0/7
+interface Ethernet1/7
  description Core
  ip address 10.10.0.1 255.255.255.254
 !
