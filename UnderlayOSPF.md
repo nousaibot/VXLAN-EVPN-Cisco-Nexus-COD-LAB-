@@ -140,7 +140,7 @@ interface Ethernet1/3
  ip router ospf 1 area 0.0.0.0
  ip ospf bfd
 !
-interface Ethernet0/7
+interface Ethernet1/7
  description Core
  ip address 10.10.0.1 255.255.255.254
  ip ospf network point-to-point
