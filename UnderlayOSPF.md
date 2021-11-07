@@ -115,6 +115,7 @@ Link ID         ADV Router      Age         Seq#       Checksum
 10.11.0.8       10.0.0.1        1745        0x80000001 0x00C122
 10.11.0.10      10.0.0.1        1745        0x80000001 0x00AD34
 </code></pre>
+</details>
 
 <details>
   <summary>`Show ping test`</summary>
