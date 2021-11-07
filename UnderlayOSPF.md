@@ -115,7 +115,6 @@ Link ID         ADV Router      Age         Seq#       Checksum
 10.11.0.8       10.0.0.1        1745        0x80000001 0x00C122
 10.11.0.10      10.0.0.1        1745        0x80000001 0x00AD34
 </code></pre>
-</details>
 
 <details>
   <summary>`Show ping test`</summary>
@@ -159,6 +158,7 @@ Sending 5, 100-byte ICMP Echos to 10.2.0.4, timeout is 2 seconds:
 !!!!!
 Success rate is 100 percent (5/5), round-trip min/avg/max = 3/4/11 ms
 </code></pre>
+</details>
 
 ---
 
