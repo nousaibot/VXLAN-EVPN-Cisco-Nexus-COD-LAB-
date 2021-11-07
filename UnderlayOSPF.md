@@ -754,3 +754,79 @@ Link ID         ADV Router      Age        Seq#       Checksum
 10.11.0.10      10.0.0.1        1553       0x80000003 0xa936
 </code></pre>
 </details>
+
+<details>
+  <summary>`Show ping test`</summary>
+<pre><code>
+Leaf4# ping 10.0.0.1
+PING 10.0.0.1 (10.0.0.1): 56 data bytes
+64 bytes from 10.0.0.1: icmp_seq=0 ttl=253 time=5.197 ms
+64 bytes from 10.0.0.1: icmp_seq=1 ttl=253 time=3.839 ms
+64 bytes from 10.0.0.1: icmp_seq=2 ttl=253 time=4.197 ms
+64 bytes from 10.0.0.1: icmp_seq=3 ttl=253 time=9.527 ms
+64 bytes from 10.0.0.1: icmp_seq=4 ttl=253 time=5.036 ms
+--- 10.0.0.1 ping statistics ---
+5 packets transmitted, 5 packets received, 0.00% packet loss
+round-trip min/avg/max = 3.839/5.559/9.527 ms
+Leaf4# ping 10.1.0.1
+PING 10.1.0.1 (10.1.0.1): 56 data bytes
+64 bytes from 10.1.0.1: icmp_seq=0 ttl=252 time=6.434 ms
+64 bytes from 10.1.0.1: icmp_seq=1 ttl=252 time=4.757 ms
+64 bytes from 10.1.0.1: icmp_seq=2 ttl=252 time=5.059 ms
+64 bytes from 10.1.0.1: icmp_seq=3 ttl=252 time=5.146 ms
+64 bytes from 10.1.0.1: icmp_seq=4 ttl=252 time=4.895 ms
+--- 10.1.0.1 ping statistics ---
+5 packets transmitted, 5 packets received, 0.00% packet loss
+round-trip min/avg/max = 4.757/5.258/6.434 ms
+Leaf4# ping 10.1.0.2
+PING 10.1.0.2 (10.1.0.2): 56 data bytes
+64 bytes from 10.1.0.2: icmp_seq=0 ttl=252 time=7.658 ms
+64 bytes from 10.1.0.2: icmp_seq=1 ttl=252 time=5.419 ms
+64 bytes from 10.1.0.2: icmp_seq=2 ttl=252 time=6.655 ms
+64 bytes from 10.1.0.2: icmp_seq=3 ttl=252 time=6.593 ms
+64 bytes from 10.1.0.2: icmp_seq=4 ttl=252 time=5.985 ms
+--- 10.1.0.2 ping statistics ---
+5 packets transmitted, 5 packets received, 0.00% packet loss
+round-trip min/avg/max = 5.419/6.462/7.658 ms
+Leaf4# ping 10.1.0.3
+PING 10.1.0.3 (10.1.0.3): 56 data bytes
+64 bytes from 10.1.0.3: icmp_seq=0 ttl=254 time=3.619 ms
+64 bytes from 10.1.0.3: icmp_seq=1 ttl=254 time=2.542 ms
+64 bytes from 10.1.0.3: icmp_seq=2 ttl=254 time=3.249 ms
+64 bytes from 10.1.0.3: icmp_seq=3 ttl=254 time=3.305 ms
+64 bytes from 10.1.0.3: icmp_seq=4 ttl=254 time=3.246 ms
+--- 10.1.0.3 ping statistics ---
+5 packets transmitted, 5 packets received, 0.00% packet loss
+round-trip min/avg/max = 2.542/3.192/3.619 ms
+Leaf4# ping 10.2.0.1
+PING 10.2.0.1 (10.2.0.1): 56 data bytes
+64 bytes from 10.2.0.1: icmp_seq=0 ttl=251 time=10.917 ms
+64 bytes from 10.2.0.1: icmp_seq=1 ttl=251 time=8.66 ms
+64 bytes from 10.2.0.1: icmp_seq=2 ttl=251 time=8.955 ms
+64 bytes from 10.2.0.1: icmp_seq=3 ttl=251 time=8.958 ms
+64 bytes from 10.2.0.1: icmp_seq=4 ttl=251 time=8.615 ms
+--- 10.2.0.1 ping statistics ---
+5 packets transmitted, 5 packets received, 0.00% packet loss
+round-trip min/avg/max = 8.615/9.22/10.917 ms
+Leaf4# ping 10.2.0.2
+PING 10.2.0.2 (10.2.0.2): 56 data bytes
+64 bytes from 10.2.0.2: icmp_seq=0 ttl=251 time=15.453 ms
+64 bytes from 10.2.0.2: icmp_seq=1 ttl=251 time=7.433 ms
+64 bytes from 10.2.0.2: icmp_seq=2 ttl=251 time=7.21 ms
+64 bytes from 10.2.0.2: icmp_seq=3 ttl=251 time=7.74 ms
+64 bytes from 10.2.0.2: icmp_seq=4 ttl=251 time=7.858 ms
+--- 10.2.0.2 ping statistics ---
+5 packets transmitted, 5 packets received, 0.00% packet loss
+round-trip min/avg/max = 7.21/9.138/15.453 ms
+Leaf4# ping 10.2.0.3
+PING 10.2.0.3 (10.2.0.3): 56 data bytes
+64 bytes from 10.2.0.3: icmp_seq=0 ttl=251 time=9.176 ms
+64 bytes from 10.2.0.3: icmp_seq=1 ttl=251 time=7.284 ms
+64 bytes from 10.2.0.3: icmp_seq=2 ttl=251 time=7.217 ms
+64 bytes from 10.2.0.3: icmp_seq=3 ttl=251 time=7.052 ms
+64 bytes from 10.2.0.3: icmp_seq=4 ttl=251 time=7.02 ms
+--- 10.2.0.3 ping statistics ---
+5 packets transmitted, 5 packets received, 0.00% packet loss
+round-trip min/avg/max = 7.02/7.549/9.176 ms
+</code></pre>
+</details>
