@@ -11,7 +11,7 @@
 |10.1.0.0/16|/32|loopback Sipne|
 |10.2.0.0/16|/32|loopback Leaf|
 ---
-![image](/IMG/UnderlayOSPF.png)
+![image](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/IMG/UnderlayOSPF.PNG)
 
 ---
 
