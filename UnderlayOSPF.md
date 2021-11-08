@@ -118,7 +118,7 @@ Link ID         ADV Router      Age         Seq#       Checksum
 </details>
 
 <details>
-  <summary>`Ping test`</summary>
+  <summary>`Ping Traceroute test`</summary>
 <pre><code>
 Core#ping 10.1.0.1
 Type escape sequence to abort.
@@ -158,15 +158,12 @@ Type escape sequence to abort.
 Sending 5, 100-byte ICMP Echos to 10.2.0.4, timeout is 2 seconds:
 !!!!!
 Success rate is 100 percent (5/5), round-trip min/avg/max = 3/4/11 ms
-</code></pre>
-<pre><code>
 
-Dump interface Ethernet0/1 [here](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/Dump/CoreInterface0-1.pcapng)
+Dump [interface Ethernet0/1](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/Dump/CoreInterface0-1.pcapng)
 
-Dump interface Ethernet0/2 [here](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/Dump/CoreInterface0-2.pcapng)
+Dump [interface Ethernet0/2](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/Dump/CoreInterface0-2.pcapng)
 
 ![image](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/IMG/CoreTraceroute.png)
-
 </code></pre>
 </details>
 
@@ -271,7 +268,7 @@ Link ID         ADV Router      Age        Seq#       Checksum
 </details>
 
 <details>
-  <summary>`Ping Traceroute test`</summary>
+  <summary>`Ping test`</summary>
 <pre><code>
 Spine1# ping 10.0.0.1
 PING 10.0.0.1 (10.0.0.1): 56 data bytes
@@ -763,7 +760,7 @@ Link ID         ADV Router      Age        Seq#       Checksum
 </details>
 
 <details>
-  <summary>`Ping test`</summary>
+  <summary>`Ping Traceroute test`</summary>
 <pre><code>
 Leaf1# ping 10.0.0.1
 PING 10.0.0.1 (10.0.0.1): 56 data bytes
@@ -825,6 +822,13 @@ PING 10.2.0.3 (10.2.0.3): 56 data bytes
 --- 10.2.0.3 ping statistics ---
 5 packets transmitted, 5 packets received, 0.00% packet loss
 round-trip min/avg/max = 4.338/4.764/5.894 ms
+
+Dump [interface Ethernet1/1](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/Dump/Leaf1Interface1-1.pcapng)
+
+Dump [interface Ethernet1/2](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/Dump/Leaf1Interface1-2.pcapng)
+
+![image](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/IMG/Leaf1Traceroute.png)
+
 </code></pre>
 </details>
 
