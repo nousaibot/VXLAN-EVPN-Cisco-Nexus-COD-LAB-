@@ -159,6 +159,11 @@ Sending 5, 100-byte ICMP Echos to 10.2.0.4, timeout is 2 seconds:
 !!!!!
 Success rate is 100 percent (5/5), round-trip min/avg/max = 3/4/11 ms
 </code></pre>
+<pre><code>
+
+![image](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/IMG/CoreTraceroute.PNG)
+
+</code></pre>
 </details>
 
 ---
@@ -262,7 +267,7 @@ Link ID         ADV Router      Age        Seq#       Checksum
 </details>
 
 <details>
-  <summary>`Ping test`</summary>
+  <summary>`Ping Traceroute test`</summary>
 <pre><code>
 Spine1# ping 10.0.0.1
 PING 10.0.0.1 (10.0.0.1): 56 data bytes
