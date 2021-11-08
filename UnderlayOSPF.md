@@ -158,6 +158,7 @@ Type escape sequence to abort.
 Sending 5, 100-byte ICMP Echos to 10.2.0.4, timeout is 2 seconds:
 !!!!!
 Success rate is 100 percent (5/5), round-trip min/avg/max = 3/4/11 ms
+
 ![image](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/IMG/CoreTraceroute.png)
 Dump [interface Ethernet0/1](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/Dump/CoreInterface0-1.pcapng)
 
