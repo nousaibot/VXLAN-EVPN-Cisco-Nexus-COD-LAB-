@@ -161,9 +161,9 @@ Success rate is 100 percent (5/5), round-trip min/avg/max = 3/4/11 ms
 </code></pre>
 <pre><code>
 
-Dump interface Ethernet0/1 [here](../Dump/CoreInterface0-1.pcapng)
+Dump interface Ethernet0/1 [here](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/Dump/CoreInterface0-1.pcapng)
 
-Dump interface Ethernet0/2 [here](../Dump/CoreInterface0-2.pcapng)
+Dump interface Ethernet0/2 [here](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/Dump/CoreInterface0-2.pcapng)
 
 ![image](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/IMG/CoreTraceroute.png)
 
