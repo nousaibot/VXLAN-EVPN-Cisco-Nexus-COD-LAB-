@@ -158,12 +158,11 @@ Type escape sequence to abort.
 Sending 5, 100-byte ICMP Echos to 10.2.0.4, timeout is 2 seconds:
 !!!!!
 Success rate is 100 percent (5/5), round-trip min/avg/max = 3/4/11 ms
-
+![image](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/IMG/CoreTraceroute.png)
 Dump [interface Ethernet0/1](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/Dump/CoreInterface0-1.pcapng)
 
 Dump [interface Ethernet0/2](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/Dump/CoreInterface0-2.pcapng)
 
-![image](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/IMG/CoreTraceroute.png)
 </code></pre>
 </details>
 
@@ -823,12 +822,11 @@ PING 10.2.0.3 (10.2.0.3): 56 data bytes
 5 packets transmitted, 5 packets received, 0.00% packet loss
 round-trip min/avg/max = 4.338/4.764/5.894 ms
 
+![image](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/IMG/Leaf1Traceroute.png)
+
 Dump [interface Ethernet1/1](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/Dump/Leaf1Interface1-1.pcapng)
 
 Dump [interface Ethernet1/2](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/Dump/Leaf1Interface1-2.pcapng)
-
-![image](https://raw.githubusercontent.com/nousaibot/VXLAN-EVPN-CiscoNexus-COD-LAB/main/IMG/Leaf1Traceroute.png)
-
 </code></pre>
 </details>
 
