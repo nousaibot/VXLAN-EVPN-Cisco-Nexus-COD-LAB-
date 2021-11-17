@@ -69,3 +69,70 @@ router isis 1
 </details>
 
 ---
+
+###Spine1
+ | address |interface |peer
+|:---------------:|:-----:|:-----:|
+|10.11.0.0/31|ether1/1|Leaf1|
+|10.11.0.2/31|ether1/2|Leaf2|
+|10.11.0.4/31|ether1/3|Leaf3|
+|10.10.0.1/31|ether1/7|Core|
+|10.1.0.1/32|loopback0 |
+<details>
+  <summary>`Show Config`</summary>
+<pre><code>
+feature isis
+interface Ethernet1/1
+  description Leaf1
+  ip address 10.11.0.0/31
+  isis network point-to-point
+  isis circuit-type level-1
+  ip router isis 1
+!
+interface Ethernet1/2
+  description Leaf2
+  ip address 10.11.0.2/31
+  isis network point-to-point
+  isis circuit-type level-1
+  ip router isis 1
+!
+interface Ethernet1/3
+  description Leaf3
+  ip address 10.11.0.4/31
+  isis network point-to-point
+  isis circuit-type level-1
+  ip router isis 1
+!
+interface Ethernet1/7
+  description Core
+  ip address 10.10.0.1/31
+  isis network point-to-point
+  isis circuit-type level-2
+  ip router isis 1
+!
+interface loopback0
+  ip address 10.1.0.1/32
+  ip router isis 1
+!
+router isis 1
+  net 49.0001.0100.0100.0001.00
+  address-family ipv4 unicast
+    distribute level-1 into level-2 all
+</code></pre>
+</details>
+
+<details>
+  <summary>`Show ISIS status`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
+<details>
+  <summary>`Ping test`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
+---
