@@ -25,7 +25,32 @@
 <details>
   <summary>`Show Config`</summary>
 <pre><code>
-
+interface Loopback0
+ ip address 10.0.0.1 255.255.255.255
+ ip router isis 1
+!
+interface Ethernet0/1
+ description Spine1
+ ip address 10.10.0.0 255.255.255.254
+ ip router isis 1
+ isis network point-to-point 
+!
+interface Ethernet0/2
+ description Spine2
+ ip address 10.10.0.2 255.255.255.254
+ ip router isis 1
+ isis network point-to-point 
+!
+interface Ethernet0/3
+ description Spine3
+ ip address 10.10.0.4 255.255.255.254
+ ip router isis 1
+ isis network point-to-point 
+!
+router isis 1
+ net 49.0007.0100.0000.0001.00
+ is-type level-2-only
+ metric-style wide
  </code></pre>
 </details>
 
