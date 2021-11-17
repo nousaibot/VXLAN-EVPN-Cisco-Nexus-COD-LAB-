@@ -136,3 +136,176 @@ router isis 1
 </details>
 
 ---
+
+###Spine2
+ |  address |interface |peer
+|:---------------:|:-----:|:-----:|
+|10.11.0.6/31|ether1/1|Leaf1|
+|10.11.0.8/31|ether1/2|Leaf2|
+|10.11.0.10/31|ether1/3|Leaf3|
+|10.10.0.3/31|ether1/7|Core|
+|10.1.0.2/32|loopback0|
+<details>
+  <summary>`Show Config`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+  
+<details>
+  <summary>`Show ISIS status`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
+<details>
+  <summary>`Ping test`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
+---
+
+###Spine3
+ |  address |interface |peer
+|:---------------:|:-----:|:-----:|
+|10.11.0.12/31|ether1/1|Leaf4|
+|10.10.0.5/31|ether1/7|Core|
+|10.1.0.3/32|loopback0|
+<details>
+  <summary>`Show Config`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
+<details>
+  <summary>`Show ISIS status`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
+<details>
+  <summary>`Ping test`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
+---
+
+###Leaf1
+ |  address |interface |peer
+|:---------------:|:-----:|:-----:|
+|10.11.0.1/31|ether1/1|Spine1|
+|10.11.0.7/31|ether1/2|Spine2|
+|10.2.0.1/32|loopback0|
+<details>
+  <summary>`Show Config`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
+<details>
+  <summary>`Show ISIS status`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
+<details>
+  <summary>`Ping Traceroute test`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
+---
+
+###Leaf2
+ |  address |interface |peer
+|:---------------:|:-----:|:-----:|
+|10.11.0.3/31|ether1/1|Spine1|
+|10.11.0.9/31|ether1/2|Spine2|
+|10.2.0.2/32|loopback0|
+<details>
+  <summary>`Show Config`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
+<details>
+  <summary>`Show ISIS status`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
+<details>
+  <summary>`Ping test`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
+---
+
+###Leaf3
+ |  address |interface |peer
+|:---------------:|:-----:|:-----:|
+|10.11.0.5/31|ether1/1|Spine1|
+|10.11.0.11/31|ether1/2|Spine2|
+|10.2.0.3/32|loopback0|
+<details>
+  <summary>`Show Config`</summary>
+<pre><code>
+
+  </code></pre>
+</details>
+
+<details>
+  <summary>`Show ISIS status`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
+<details>
+  <summary>`Ping test`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
+---
+
+###Leaf4
+ |  address |interface |peer
+|:---------------:|:-----:|:-----:|
+|10.11.0.13/31|ether1/1|Spine3|
+|10.2.0.4/32|loopback0|
+<details>
+  <summary>`Show Config`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
+<details>
+  <summary>`Show ISIS status`</summary>
+<pre><code>
+
+</code></pre>
+</details>
+
+<details>
+  <summary>`Ping test`</summary>
+<pre><code>
+
+</code></pre>
+</details>
