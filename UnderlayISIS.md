@@ -60,11 +60,11 @@ router isis 1
 
 </code></pre>
 </details>
-
+-
 <details>
   <summary>`Ping Traceroute test`</summary>
 <pre><code>
-
+-
 </code></pre>
 </details>
 
@@ -129,7 +129,7 @@ router isis 1
 </details>
 
 <details>
-  <summary>`Ping test`</summary>
+  <summary>`Show ISIS status`</summary>
 <pre><code>
 
 </code></pre>
@@ -148,7 +148,43 @@ router isis 1
 <details>
   <summary>`Show Config`</summary>
 <pre><code>
-
+feature isis
+interface Ethernet1/1
+  description Leaf1
+  ip address 10.11.0.6/31
+  isis network point-to-point
+  isis circuit-type level-1
+  ip router isis 1
+!
+interface Ethernet1/2
+  description Leaf2
+  ip address 10.11.0.8/31
+  isis network point-to-point
+  isis circuit-type level-1
+  ip router isis 1
+!
+interface Ethernet1/3
+  description Leaf3
+  ip address 10.11.0.10/31
+  isis network point-to-point
+  isis circuit-type level-1
+  ip router isis 1
+!
+interface Ethernet1/7
+  description Core
+  ip address 10.10.0.3/31
+  isis network point-to-point
+  isis circuit-type level-2
+  ip router isis 1
+!
+interface loopback0
+  ip address 10.1.0.2/32
+  ip router isis 1
+!
+router isis 1
+  net 49.0001.0100.0100.0002.00
+  address-family ipv4 unicast
+    distribute level-1 into level-2 all
 </code></pre>
 </details>
   
@@ -166,6 +202,7 @@ router isis 1
 </code></pre>
 </details>
 
+
 ---
 
 ###Spine3
@@ -177,7 +214,29 @@ router isis 1
 <details>
   <summary>`Show Config`</summary>
 <pre><code>
-
+feature isis
+interface Ethernet1/1
+  description Leaf4
+  ip address 10.11.0.12/31
+  isis network point-to-point
+  isis circuit-type level-1
+  ip router isis 1
+!
+interface Ethernet1/7
+  description Core
+  ip address 10.10.0.5/31
+  isis network point-to-point
+  isis circuit-type level-2
+  ip router isis 1
+!
+interface loopback0
+  ip address 10.1.0.3/32
+  ip router isis 1
+!
+router isis 1
+  net 49.0002.0100.0100.0003.00
+  address-family ipv4 unicast
+    distribute level-1 into level-2 all
 </code></pre>
 </details>
 
@@ -206,7 +265,27 @@ router isis 1
 <details>
   <summary>`Show Config`</summary>
 <pre><code>
-
+feature isis
+interface Ethernet1/1
+  description Spine1
+  ip address 10.11.0.1/31
+  isis network point-to-point
+  ip router isis 1
+!
+interface Ethernet1/2
+  description Spine2
+  ip address 10.11.0.7/31
+  isis network point-to-point
+  ip router isis 1
+!
+interface loopback0
+  ip address 10.2.0.1/32
+  ip router isis 1
+!
+router isis 1
+  net 49.0001.0100.0200.0001.00
+  is-type level-1
+  address-family ipv4 unicast
 </code></pre>
 </details>
 
@@ -235,7 +314,27 @@ router isis 1
 <details>
   <summary>`Show Config`</summary>
 <pre><code>
-
+feature isis
+interface Ethernet1/1
+  description Spine1
+  ip address 10.11.0.3/31
+  isis network point-to-point
+  ip router isis 1
+!
+interface Ethernet1/2
+  description Spine2
+  ip address 10.11.0.9/31
+  isis network point-to-point
+  ip router isis 1
+!
+interface loopback0
+  ip address 10.2.0.2/32
+  ip router isis 1
+!
+router isis 1
+  net 49.0001.0100.0200.0002.00
+  is-type level-1
+  address-family ipv4 unicast
 </code></pre>
 </details>
 
@@ -264,7 +363,27 @@ router isis 1
 <details>
   <summary>`Show Config`</summary>
 <pre><code>
-
+feature isis
+interface Ethernet1/1
+  description Spine1
+  ip address 10.11.0.5/31
+  isis network point-to-point
+  ip router isis 1
+!
+interface Ethernet1/2
+  description Spine2
+  ip address 10.11.0.11/31
+  isis network point-to-point
+  ip router isis 1
+!
+interface loopback0
+  ip address 10.2.0.3/32
+  ip router isis 1
+!
+router isis 1
+  net 49.0001.0100.0200.0003.00
+  is-type level-1
+  address-family ipv4 unicast
   </code></pre>
 </details>
 
@@ -292,7 +411,22 @@ router isis 1
 <details>
   <summary>`Show Config`</summary>
 <pre><code>
-
+feature isis
+interface Ethernet1/1
+  description Spine3
+  no switchport
+  ip address 10.11.0.13/31
+  isis network point-to-point
+  ip router isis 1
+!
+interface loopback0
+  ip address 10.2.0.4/32
+  ip router isis 1
+!
+router isis 1
+  net 49.0002.0100.0200.0004.00
+  is-type level-1
+  address-family ipv4 unicast
 </code></pre>
 </details>
 
